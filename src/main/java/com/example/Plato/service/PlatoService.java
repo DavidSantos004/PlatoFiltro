@@ -36,4 +36,21 @@ public class PlatoService {
         platoRepository.deleteById(id);
     }
 
+    public Plato updatePlato(Integer id, Plato updatedPlato) {
+        Plato existingPlato = platoRepository.findById(id).orElse(null);
+
+        if (existingPlato != null) {
+            existingPlato.setNombreplato(updatedPlato.getNombreplato());
+            existingPlato.setDescripcionplato(updatedPlato.getDescripcionplato());
+            existingPlato.setPrecioplato(updatedPlato.getPrecioplato());
+            existingPlato.setMaterialplato(updatedPlato.getMaterialplato());
+            existingPlato.setColorplato(updatedPlato.getColorplato());
+
+            return platoRepository.save(existingPlato);
+        } else {
+            
+            return null;
+        }
+    }
+
 }

@@ -21,6 +21,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "plato")
 @Builder
+
 public class Plato {
 
     @Id
